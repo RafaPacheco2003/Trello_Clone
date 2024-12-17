@@ -1,0 +1,22 @@
+.toast {
+    opacity: 0; // Por defecto, el toast es invisible
+    transition: opacity 0.5s ease; // La transición de opacidad
+    border: 2px solid rgb(246, 246, 246); // Borde temporal para depuración
+    
+    // Cuando se aplica la clase 'show', el toast aparece con una animación
+    &.show {
+      opacity: 1; // Lo hace visible
+      animation: fadeIn 0.5s forwards, fadeOut 0.5s 2.5s forwards; // Animación de entrada y salida
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
