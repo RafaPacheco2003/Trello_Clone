@@ -1,0 +1,50 @@
+<div class="w-screen h-screen bg-gray-50 relative">
+  <div class="absolute w-full h-full hidden sm:block">
+    <img class="absolute w-60 lg:w-96 left-0 bottom-0" src="assets/svg/login/undraw_undraw_undraw_undraw_undraw_undraw_undraw_undraw_undraw_walking_together_7ulo_m7i2_l2pa_rcwe_-1-_apsm_-1-_w8ef_-1-_n46j_la5v_-1-_718m.svg" alt="Imagen 1" />
+    <img class="absolute w-60 lg:w-96 right-0 bottom-0" src="assets/svg/login/undraw_vintage_414k.svg" alt="Imagen 1" />
+  </div>
+
+  <div class="relative w-full sm:w-7/12 md:w-6/12 lg:w-4/12 m-auto">
+    <header class="pt-6 pb-2 flex justify-center">
+      <img class="w-56" src="assets/svg/login/trello-logo.png" alt="logo" />
+    </header>
+
+    <div class="bg-white rounded shadow py-4 px-6">
+      <div class="mb-4">
+        <h1 class="text-center font-semibold pt-4 pb-8">Login in to trello</h1>
+
+        <form novalidate class="space-y-4" action="">
+          <div class="relative">
+            <input placeholder="Enter email" type="text" class="w-full rounded bg-gray-50 border-gray-300" />
+          </div>
+
+          <div class="relative">
+            <input placeholder="Enter password" type="password" class="w-full rounded bg-gray-50 border-gray-300" />
+          </div>
+
+          <div>
+            <app-btn (click)="onLoginClick()" [typeBtn]="'button'" [color]="'primary'">Log In</app-btn>
+          </div>
+
+        
+        </form>
+      </div>
+
+      <hr class="my-4 border-b-1 border-r-gray-300" />
+
+      <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-4">
+        <a routerLink="/forgot-password" class="text-blue-600 font-light">Can't log in?</a>
+        <span class="text-gray-500 hidden md:block"></span>
+        <a routerLink="/register" class="text-blue-600 font-light">Sign up for an account</a>
+      </div>
+    </div>
+
+    <hr class="mt-10 border-b-1 border-r-gray-300" />
+    <div class="flex justify-center">
+      <img src="assets/svg/login/trello-logo.png" class="w-32 mt-4" />
+    </div>
+  </div>
+
+  <!-- Toast Component -->
+  <app-toast [message]="toastMessage" [show]="showToast"></app-toast>
+</div>
