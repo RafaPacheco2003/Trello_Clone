@@ -1,6 +1,8 @@
-<nav class="bg-sky-700 border-gray-200 px-6 shadow-md">
+<nav class="bg-sky-900 border-gray-200 px-6 shadow-md">
   <div class="flex flex-wrap justify-between items-center">
+
     <div class="flex items-center">
+
       <a routerLink="/">
         <img
           loading="lazy"
@@ -9,6 +11,7 @@
           alt="logo"
         />
       </a>
+
       <div class="flex items-center">
         <ul class="flex items-center space-x-2 text-sm font-medium">
           <li>
@@ -18,58 +21,47 @@
             <a class="block py-3 px-4 text-white">Recent</a>
           </li>
           <li>
-            <app-btn typeBtn="button" [color]="'primary'">Create</app-btn>
+            <app-btn class="text-lg py-0.5 px-1" typeBtn="button" [color]="'primary'">Create</app-btn>
           </li>
         </ul>
       </div>
     </div>
+
+
+    <!-- Primer Botón: Perfil del Usuario -->
     <div class="flex items-center">
-      <button
-        type="button"
-        class="flex rounded-full"
-        aria-expanded="false"
-        (click)="isOpen = !isOpen"
-        cdkOverlayOrigin
-        #menuOverlay="cdkOverlayOrigin"
-      >
-        <img
-          class="w-8 h-8 rounded-full"
-          src="assets/svg/login/trello-logo.png"
-          alt="user photo"
-        />
-      </button>
+      <div class="flex space-x-2">
+        
+        <button class="text-white mr-3">
+          <fa-icon [icon]="faBell"></fa-icon>
+        </button>
+        <button class="text-white mr-3">
+          <fa-icon [icon]="faInfoCircle"></fa-icon>
+        </button>
+        <button
+          type="button"
+          class="flex rounded-full"
+          aria-expanded="false"
+          (click)="isOpen = !isOpen"
+          cdkOverlayOrigin
+          #menuOverlay="cdkOverlayOrigin"
+        >
+          <img
+            class="w-8 h-8 rounded-full"
+            src="assets/svg/login/trello-logo.png"
+            alt="user photo"
+          />
+        </button>
+      </div>
+      
     </div>
   </div>
 </nav>
-<p>js</p>
-<p>js</p>
-<p>js</p>
-<p>js</p>
-<p>js</p>
-<button
-        type="button"
-        class="flex rounded-full"
-        aria-expanded="false"
-        (click)="isOpenBody = !isOpenBody"
-        cdkOverlayOrigin
-        #bodyOverlay="cdkOverlayOrigin"
-      >
-        <img
-          class="w-8 h-8 rounded-full"
-          src="assets/svg/login/trello-logo.png"
-          alt="user photo"
-        />
-      </button>
-<p>js</p>
-<p>js</p>
-<p>js</p>
-<p>js</p>
-<p>js</p>
-<p>js</p>
-<p>js</p>
-<p>js</p>
+
+<!-- Segundo Botón: Otro usuario o funcionalidad -->
 
 
+<!-- ng-template para el primer botón -->
 <ng-template
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="menuOverlay"
@@ -80,91 +72,24 @@
   >
     <div class="py-3 px-4">
       <span class="block text-sm text-gray-900 ">
-        {{ userName }} <!-- Interpolación del nombre de usuario -->
+        {{ userName }}
       </span>
       <span class="block text-sm font-medium text-gray-500 truncate ">
-        {{ email }} <!-- Interpolación del correo -->
+        {{ email }}
       </span>
     </div>
     <ul class="py-1" aria-labelledby="user-menu-button">
       <li>
-        <a
-          href="#"
-          class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-          >Dashboard</a
-        >
+        <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
       </li>
       <li>
-        <a
-          href="#"
-          class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-          >Settings</a
-        >
+        <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
       </li>
       <li>
-        <a
-          href="#"
-          class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-          >Earnings</a
-        >
+        <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Earnings</a>
       </li>
       <li>
-        <a
-          href="#"
-          class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-          >Sign out</a
-        >
-      </li>
-    </ul>
-  </div>
-</ng-template>
-
-
-
-<ng-template
-  cdkConnectedOverlay
-  [cdkConnectedOverlayOrigin]="menuOverlay"
-  [cdkConnectedOverlayOpen]="isOpen"
->
-  <div
-    class="z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow"
-  >
-    <div class="py-3 px-4">
-      <span class="block text-sm text-gray-900 ">
-        {{ userName }} <!-- Interpolación del nombre de usuario -->
-      </span>
-      <span class="block text-sm font-medium text-gray-500 truncate ">
-        {{ email }} <!-- Interpolación del correo -->
-      </span>
-    </div>
-    <ul class="py-1" aria-labelledby="user-menu-button">
-      <li>
-        <a
-          href="#"
-          class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-          >Dashboard</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-          >Settings</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-          >Earnings</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-          >Sign out</a
-        >
+        <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
       </li>
     </ul>
   </div>

@@ -1,2 +1,85 @@
 <app-navbar></app-navbar>
-<h1>BordsPage</h1>
+<div class="container flex mt-10  ml-4">
+
+    <div class="w-1/5 mr-4">
+        <ul class="flex flex-col font-medium text-gray-700">
+            <li>
+                <a href="" class="block bg-sky-100 rounded py-1 px-3 text-sky-700">
+                    <fa-icon [icon]="faTrello"></fa-icon>Boards
+                </a>
+            </li>
+            <li>
+                <a href="" class="block py-1 px-3">
+                    <fa-icon [icon]="faBox"></fa-icon>Templates
+                </a>
+            </li>
+            <li>
+                <a href="" class="block py-1 px-3">
+                    <fa-icon [icon]="faWaveSquare"></fa-icon>Home
+                </a>
+            </li>
+            
+            
+            
+        </ul>
+
+        <!-- Acordeón -->
+        <cdk-accordion>
+            <cdk-accordion-item #accordionMenu="cdkAccordionItem">
+                <button type="button" class="w-full py-1 px-3 text-left" (click)="accordionMenu.toggle()">
+                    My workspace
+                    <fa-icon [icon]="accordionMenu.expanded ? faAngleUp : faAngleDown"></fa-icon>
+                </button>
+                <div [style.display]="accordionMenu.expanded ? '' : 'none'" class="pl-3 pt-2">
+                    <ul>
+                        <li>
+                            <a href="" class="block py-1 px-3">
+                                <fa-icon [icon]="faTrello" class="mr-1.5"></fa-icon>Boards
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="block py-1 px-3">
+                                <fa-icon [icon]="faHeart" class="mr-1.5"></fa-icon>Highlights
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="block py-1 px-3">
+                                <fa-icon [icon]="faBorderAll" class="mr-1.5"></fa-icon>Views
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="block py-1 px-3">
+                                <fa-icon [icon]="faUser" class="mr-1.5"></fa-icon>Users
+                            </a>
+                        </li>
+                    </ul>
+               </div>
+            </cdk-accordion-item>
+        </cdk-accordion>
+        
+        <cdk-accordion>
+            <ng-container *ngFor="let item of items">
+              <cdk-accordion-item #accordionItem="cdkAccordionItem">
+                <button class="w-full py-1 px-3 text-left" type="button" (click)="accordionItem.toggle()">{{item.label}}</button>
+                <div class="" [style.display]="accordionItem.expanded ? '' : 'none'">
+                  <ul>
+                    <li class="block py-1 px-3" *ngFor="let subItem of item.items">{{subItem.label}}</li>
+                  </ul>
+                </div>
+              </cdk-accordion-item>
+            </ng-container>
+          </cdk-accordion>
+          
+    </div>
+
+    <div class="w-full">
+        <h1 class="text-2xl font-bold mb-7"><fa-icon [icon]="faClock"></fa-icon>Recently viewed</h1>
+        <div class="grid grid-cols-4 gap-5">
+            <div class="w-full bg-sky-700 py-2 px-4 rounded text-white font-bold h-24">Boards</div>
+            <div class="w-full bg-green-700 py-2 px-4 rounded text-white font-bold h-24">Boards</div>
+            <div class="w-full bg-amber-700 py-2 px-4 rounded text-white font-bold h-24">Boards</div>
+            <div class="w-full bg-indigo-700 py-2 px-4 rounded text-white font-bold h-24">Boards</div>
+        </div>
+    </div>
+    
+</div>

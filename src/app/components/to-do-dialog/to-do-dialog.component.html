@@ -1,0 +1,94 @@
+<!-- Contenedor principal de la tarjeta -->
+<div class="p-6 bg-gray-100 relative rounded shadow">
+
+  <!-- Botón de cierre (posición absoluta en la parte superior derecha) -->
+  <button (click)="close()" type="button" class="absolute top-3 right-3 focus:outline-none p-2">
+    <fa-icon [icon]="faClose"></fa-icon> <!-- Icono de cerrar -->
+  </button>
+
+  <!-- Sección superior con el título y la lista de tareas -->
+  <div class="flex space-x-2 mb-5">
+    <!-- Icono del check -->
+    <fa-icon class="text-gray-800" [icon]="faCheckToSlot"></fa-icon>
+
+    <div class="flex flex-col">
+      <!-- Nombre de la tarea -->
+      <h3 class="text-lg font-semibold text-gray-800">{{todo.title}}</h3>
+      <!-- Lista a la que pertenece la tarea -->
+      <p class="text-sm text-gray-500">in list ToDo</p>
+    </div>
+  </div>
+
+  <!-- Sección de descripción -->
+  <div class="flex space-x-2 mb-5 w-4/6">
+    <!-- Icono de descripción -->
+    <fa-icon class="text-gray-800" [icon]="faBars"></fa-icon>
+
+    <div class="flex flex-col">
+      <!-- Título de la descripción -->
+      <h3 class="text-lg font-semibold text-gray-800">Description</h3>
+      <!-- Texto de la descripción -->
+      <p class="text-sm text-gray-500">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, hic? Adipisci soluta cum odio, beatae ratione
+        magni nobis...
+      </p>
+      <!-- Contenedor para los botones -->
+      <div class="flex justify-start space-x-2 my-2">
+        <button type="button" class="px-4 py-2  rounded" (click)="closeWithRta(true)">Sí</button>
+        <button type="button" class="px-4 py-2 rounded" (click)="closeWithRta(false)">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nueva sección para Activity -->
+  <div class="flex flex-col space-y-5 mb-5 w-4/6">
+    <!-- Contenedor de la actividad con el botón -->
+    <div class="flex space-x-2">
+      <!-- Icono de actividad -->
+      <fa-icon class="text-gray-800" [icon]="faRocket"></fa-icon>
+
+      <div class="flex flex-grow justify-between items-center">
+        <!-- Título de la actividad -->
+        <h3 class="text-lg font-semibold text-gray-800">Activity</h3>
+        <!-- Botón para mostrar detalles -->
+        <button class="rounded bg-slate-200 py-2 px-3 ml-auto mr-5 text-sm text-gray-700">
+          Show details
+        </button>
+      </div>
+    </div>
+
+    <!-- Contenedor del nuevo div con ícono de usuario y comentario -->
+    <div class="flex space-x-2 items-center mb-10">
+      <!-- Icono de usuario -->
+      <fa-icon class="text-gray-800" [icon]="faUser"></fa-icon>
+      <!-- Input para comentario con un ancho reducido -->
+      <input type="text" class="mx-1 p-2 rounded border border-gray-300 w-10/12" placeholder="Write your comment...">
+    </div>
+  </div>
+
+  <!-- Botones de acciones (lado derecho) -->
+  <div class="flex flex-col space-y-2 absolute top-20 right-3 mt-4">
+    <p class="text-sm text-gray-500">Add to card</p>
+
+    <!-- Nuevo Botón de comentarios -->
+    <app-btn typeBtn="button" color="gray-light">
+      <fa-icon class="text-gray-800" [icon]="faComment"></fa-icon> Comments
+    </app-btn>
+
+    <!-- Nuevo Botón de adjuntar archivos -->
+    <app-btn typeBtn="button" color="gray-light">
+      <fa-icon class="text-gray-800" [icon]="faPaperclip"></fa-icon> Attach Files
+    </app-btn>
+
+    <!-- Nuevo Botón de fechas -->
+    <app-btn typeBtn="button" color="gray-light">
+      <fa-icon class="text-gray-800" [icon]="faCalendarAlt"></fa-icon> Due Date
+    </app-btn>
+
+    <!-- Nuevo Botón de prioridad -->
+    <app-btn typeBtn="button" color="gray-light">
+      <fa-icon class="text-gray-800" [icon]="faFlag"></fa-icon> Priority
+    </app-btn>
+  </div>
+
+</div>
