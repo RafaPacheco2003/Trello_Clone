@@ -1,0 +1,49 @@
+<div class="flex flex-col h-screen">
+    <app-navbar></app-navbar>
+    <div class="w-full gro bg-white-600 p-6">
+        <h1 class="text-xl text-gray-700 font-semibold italic mb-5">Table</h1>
+
+        <!-- Search Input -->
+        <div class="mb-4">
+            <input type="search" [formControl]="input" placeholder="Search by title, ID or price"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <table cdk-table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+            [dataSource]="dataSource">
+            <tr cdk-header-row class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400"
+                *cdkHeaderRowDef="displayedColumns"></tr>
+            <tr cdk-row class="bg-white dark:bg-gray-800 hover:bg-gray-50"
+                *cdkRowDef="let row; columns: displayedColumns"></tr>
+
+            <!--Id-->
+            <ng-container cdkColumnDef="No">
+                <th cdk-header-cell class="px-6 py-3 rounded-s-lg" *cdkHeaderCellDef>No</th>
+                <td cdk-cell class="px-6 py-4" *cdkCellDef="let row">{{row.id}}</td>
+            </ng-container>
+
+            <!--title-->
+            <ng-container cdkColumnDef="title">
+                <th cdk-header-cell class="px-6 py-3" *cdkHeaderCellDef>Title</th>
+                <td cdk-cell class="px-6 py-4" *cdkCellDef="let row">{{row.title}}</td>
+            </ng-container>
+
+            <!--price-->
+            <ng-container cdkColumnDef="price">
+                <th cdk-header-cell class="px-6 py-3 rounded-e-lg" *cdkHeaderCellDef>Price</th>
+                <td cdk-cell class="px-6 py-4 text-right font-medium"
+                    [ngClass]="{'bg-red-200 text-red-800 font-bold': row.price < 100}" *cdkCellDef="let row">
+                    ${{ row.price }}
+                </td>
+            </ng-container>
+
+            <!--actions-->
+            <ng-container cdkColumnDef="actions">
+                <th cdk-header-cell class="px-6 py-3 rounded-e-lg" *cdkHeaderCellDef>Actions</th>
+                <td cdk-cell class="px-6 py-4" *cdkCellDef="let row">
+                    <app-btn (click)="update(row)">Update</app-btn>
+                </td>
+            </ng-container>
+        </table>
+    </div>
+</div>
